@@ -73,8 +73,13 @@ myLayouts = smartBorders(avoidStruts(
 -}
 
 main = do
+  -- reduce tearing
+  spawn "compton --backend glx --vsync opengl &"
+  -- status bar
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc"
+  -- lock screen
   spawn "light-locker &"
+
   xmonad $ defaultConfig {
     modMask = myModMask
   , terminal = myTerminal
