@@ -79,6 +79,8 @@ main = do
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc"
   -- lock screen
   spawn "light-locker &"
+  -- shift screen color temperature
+  spawn "redshift &"
 
   xmonad $ defaultConfig {
     modMask = myModMask
